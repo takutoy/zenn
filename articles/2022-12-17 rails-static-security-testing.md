@@ -8,6 +8,8 @@ published: false
 
 # Railsアプリケーションのセキュリティコードレビューガイド
 
+※本記事は以前[Qiitaに投稿した記事](https://qiita.com/takutoy/items/e1867b51a6c8a15a93c8)を改変したものです。
+
 ## 本ガイドについて
 
 Ruby on Rails 製 Webアプリケーションのセキュリティテストをするためのガイドです。本ガイドは脆弱なRailsアプリである [RailsGoat](https://github.com/OWASP/railsgoat) を題材に、自動および手動によるセキュリティコードレビューの手法を解説します。
