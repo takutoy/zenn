@@ -1,9 +1,9 @@
 ---
 title: "Railsアプリケーションのセキュリティコードレビューガイド"
-emoji: "🔍"
+emoji: "🕵🏻‍♀️"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["rails", "security", "sast"]
-published: false
+published: true
 ---
 
 ※本記事は以前[Qiitaに投稿した記事](https://qiita.com/takutoy/items/e1867b51a6c8a15a93c8)を改変したものです。
