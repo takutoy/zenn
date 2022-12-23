@@ -2,7 +2,7 @@
 title: "Semgrepでセキュリティコードレビューを効率化する"
 emoji: "🔍"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: ["rails", "security", "sast"]
+topics: ["rails", "security", "sast", "semgrep"]
 published: true
 ---
 
@@ -71,7 +71,7 @@ semgrep -e '{パターン}' -l {言語} {ファイル名}
 
 次のコードを `find1.rb` に保存し、Semgrep で検索してみよう。
 
-```ruby
+```ruby : find1.rb
 # a
 User.find(params[:id])
 
@@ -116,7 +116,7 @@ Ran 1 rule on 1 file: 3 findings.
 
 先ほどのパターンをYAMLで定義するとこのようになる。`idor1.yaml` に保存しよう。
 
-```yaml
+```yaml : idor1.yaml
 rules:
   - id: idor
     languages:
@@ -236,7 +236,7 @@ current_user.articles.find(params[:id])
 
 下記のルールでは、metavariable `$M` に正規表現 `^[A-Z]` （大文字アルファベットで始まる） にマッチするという制約を追加している。
 
-```yaml
+```yaml : idor2.yaml
 rules:
  - id: idor2
    languages:
@@ -318,7 +318,7 @@ Symbolic propagation（変数伝播？）は、定数や変数を追跡できる
 
 Symbolic propagation を使うには、 `symbolic_propagation` オプションを有効にすればよい。
 
-```yaml
+```yaml : idor3.yaml
 rules:
  - id: idor3
    languages:
@@ -383,7 +383,7 @@ Taint tracking を使うには taint モードを使用し、source と sink の
 
 今回の例では `params[:id]` が source, `$M.find(...)` が sink となる。
 
-```yaml
+```yaml : idor4.yaml
 rules:
   - id: idor
     languages:
